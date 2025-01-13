@@ -1,0 +1,1 @@
+{"version":3,"file":"02-lightbox.js","sources":["../src/js/02-lightbox.js"],"sourcesContent":["import { galleryItems } from './gallery-items.js';\n// Change code below this line\n\nconsole.log(galleryItems);\n"],"names":["galleryItems"],"mappings":"2FAGA,QAAQ,IAAIA,CAAY"}

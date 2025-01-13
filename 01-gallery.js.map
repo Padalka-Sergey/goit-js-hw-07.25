@@ -1,0 +1,1 @@
+{"version":3,"file":"01-gallery.js","sources":["../src/js/01-gallery.js"],"sourcesContent":["import { galleryItems } from './gallery-items.js';\n// Change code below this line\n\nconsole.log(galleryItems);\n"],"names":["galleryItems"],"mappings":"2FAGA,QAAQ,IAAIA,CAAY"}
