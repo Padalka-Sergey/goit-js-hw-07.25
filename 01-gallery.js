@@ -1,12 +1,14 @@
-import{g as l}from"./assets/gallery-items-C3TQHNc4.js";/* empty css                      */console.log(l);const e=document.querySelector(".gallery");console.dir(e);const a=l.map(({preview:r,original:o,description:s})=>`
+import{g as l}from"./assets/gallery-items-C3TQHNc4.js";/* empty css                      */const t=document.querySelector(".gallery"),i=l.map(({preview:e,original:a,description:r})=>`
 <li class="gallery__item">
-  <a class="gallery__link" href=${o}>
+  <a class="gallery__link" href=${a}>
     <img
       class="gallery__image"
-      src=${r}
+      src=${e}
       data-source="large-image.jpg"
-      alt=${s}
+      alt=${r}
     />
   </a>
-</li>`).join("");console.log(a);e.innerHTML=a;
+</li>`).join("");t.innerHTML=i;t.addEventListener("click",n);function n(e){if(e.target.nodeName!=="IMG")return;const a=e.target.parentNode.href;basicLightbox.create(`
+    <img src=${a} width="800" height="600">
+`).show(),e.preventDefault()}
 //# sourceMappingURL=01-gallery.js.map
