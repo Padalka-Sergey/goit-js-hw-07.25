@@ -1,9 +1,9 @@
 import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
 
-console.log(galleryItems);
 const listGallery = document.querySelector('.gallery');
-console.dir(listGallery);
+
 const markup = galleryItems
   .map(
     ({ preview, original, description }) => `
@@ -19,16 +19,20 @@ const markup = galleryItems
 </li>`
   )
   .join('');
-console.log(markup);
+
 listGallery.innerHTML = markup;
 
-/* <li class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
-    <img
-      class="gallery__image"
-      src="small-image.jpg"
-      data-source="large-image.jpg"
-      alt="Image description"
-    />
-  </a>
-</li> */
+listGallery.addEventListener('click', openLargeImage);
+
+function openLargeImage(evt) {
+  if (evt.target.nodeName !== 'IMG') {
+    return;
+  }
+  const parentEl = evt.target.parentNode.href;
+  const instance = basicLightbox.create(`
+    <img src=${parentEl} width="800" height="600">
+`);
+
+  instance.show();
+  evt.preventDefault();
+}
