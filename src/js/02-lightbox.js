@@ -1,13 +1,17 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+const listGalleryRef = document.querySelector('.some-element');
+const markup = createGalleryItems(galleryItems);
 
-const listGallery = document.querySelector('.some-element');
+listGalleryRef.innerHTML = markup;
 
-const markup = galleryItems
-  .map(
-    ({ preview, original, description }) => `
+listGalleryRef.addEventListener('click', openModalImageHandler);
+
+function createGalleryItems(items) {
+  return items
+    .map(
+      ({ preview, original, description }) => `
   <li class="gallery__item">
   <a class="gallery__link" href=${original}>
   <img
@@ -17,26 +21,19 @@ const markup = galleryItems
   />
   </a>
   </li>`
-  )
-  .join('');
-
-listGallery.innerHTML = markup;
-
-listGallery.addEventListener('click', openModalImageHandler);
+    )
+    .join('');
+}
 
 function openModalImageHandler(evt) {
   evt.preventDefault();
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
-  new SimpleLightbox('.some-element a');
-  // var lightbox = new SimpleLightbox('.gallery a', {
-  //   /* options */
-  // });
+  new SimpleLightbox('.some-element a', {
+    // captions: true,
+    // captionPosition: 'top',
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
 }
-
-// <li class="gallery__item">
-//   <a class="gallery__link" href="large-image.jpg">
-//     <img class="gallery__image" src="small-image.jpg" alt="Image description" />
-//   </a>
-// </li>;
